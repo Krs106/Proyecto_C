@@ -114,7 +114,6 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
   gameType = 0;
   gtk_widget_destroy((GtkWidget *) user_data);
   gtk_button_set_label(gameClick, "PvP");
-    }
 }
 
 /* initialising mode is used to get a reference to all the buttons in order to change
