@@ -88,41 +88,6 @@ void on_aboutSelection_activate()
   gtk_widget_destroy (about);
 }
 
-// when gamemode button is pressed
-void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_data)
-{
-  gameClick = (GtkButton *) user_data;
-  if(!statusFlag) return;
-  if(flag)
-  {
-    gtk_button_set_label(statusClick, "RESTART TO SELECT GAMEMODE");
-    return;
-  }
-  flag=1; //enable flag at button press, not here. reset flag to 0 in restart
-  gtk_button_set_label(statusClick, "SELECT GAMEMODE");
-  GtkBuilder  *builder;
-  GtkWidget   *gameDialog;
-// initialising GTKbuilder with .glade file
-  builder = gtk_builder_new();
-  gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
-// initialising gamemode selection widget
-  gameDialog = GTK_WIDGET(gtk_builder_get_object(builder, "chooseGamemodeDialog"));
-  gtk_builder_connect_signals(builder, NULL);
-  g_object_unref(builder);
-  gtk_dialog_run (GTK_DIALOG (gameDialog));
-// when window is closed from the x button in toolbar
-  gtk_widget_destroy(gameDialog);
-}
-
-// runs when PvP is selected in settings menu
-void on_pvpButton_clicked(GtkWidget *click_button, gpointer   user_data)
-{
-  gameType = 0;
-  gtk_widget_destroy((GtkWidget *) user_data);
-  gtk_button_set_label(gameClick, "PvP");
-}
-
-
 /* runs when restart is selected in settings menu. Destroys old window,
  reinitialises all global variables and runs main method */
 void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
