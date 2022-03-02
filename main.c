@@ -141,6 +141,7 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
           pressed[i][j]=0;
       }
   }
+  main(0, NULL);
   setAllButtonsToBlank();
 }
 
