@@ -95,11 +95,11 @@ void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_da
   if(!statusFlag) return;
   if(flag)
   {
-    gtk_button_set_label(statusClick, "RESTART TO SELECT GAMEMODE");
+    gtk_button_set_label(statusClick, "Reiniciar para seleccionar el modo de juego");
     return;
   }
   flag=1; //enable flag at button press, not here. reset flag to 0 in restart
-  gtk_button_set_label(statusClick, "SELECT GAMEMODE");
+  gtk_button_set_label(statusClick, "Seleccione el modo de juego");
   GtkBuilder  *builder;
   GtkWidget   *gameDialog;
 // initialising GTKbuilder with .glade file
@@ -152,7 +152,7 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
   statusClick = (GtkButton *) user_data;
   if(!flag)
     {
-      gtk_button_set_label(statusClick, "SELECT GAMEMODE FROM SETTINGS");
+      gtk_button_set_label(statusClick, "Seleccione el modo de juego");
       statusFlag=1;
     }
 }
@@ -192,12 +192,12 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -206,12 +206,12 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
     }
     pressed[0][0]=1;
   }
@@ -249,12 +249,12 @@ int on_button12_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -263,12 +263,12 @@ int on_button12_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
     }
     pressed[0][1]=1;
   }
@@ -306,12 +306,12 @@ int on_button13_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -325,7 +325,7 @@ int on_button13_clicked(GtkWidget *click_button, gpointer   user_data)
         case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 1");
     }
     pressed[0][2]=1;
   }
@@ -363,12 +363,12 @@ int on_button21_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -382,7 +382,7 @@ int on_button21_clicked(GtkWidget *click_button, gpointer   user_data)
         case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 1");
     }
     pressed[1][0]=1;
   }
@@ -420,12 +420,12 @@ int on_button22_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -434,12 +434,12 @@ int on_button22_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
     }
     pressed[1][1]=1;
   }
@@ -477,12 +477,12 @@ int on_button23_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -491,12 +491,12 @@ int on_button23_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 1");
     }
     pressed[1][2]=1;
   }
@@ -534,12 +534,12 @@ int on_button31_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -548,12 +548,12 @@ int on_button31_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
     }
     pressed[2][0]=1;
   }
@@ -591,12 +591,12 @@ int on_button32_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -605,12 +605,12 @@ int on_button32_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
     }
     pressed[2][1]=1;
   }
@@ -648,12 +648,12 @@ int on_button33_clicked(GtkWidget *click_button, gpointer   user_data)
                   gtk_button_set_label(statusClick, "DRAW");
                   gameNotOver=0; return 0;
                 } break;
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
     // runs when the button is pressed during an even move
     else
@@ -662,12 +662,12 @@ int on_button33_clicked(GtkWidget *click_button, gpointer   user_data)
       gtk_button_set_label(buttonTemp, "O");
       switch(hasAnyoneWon(arr))
       {
-        case 1: gtk_button_set_label(statusClick, "PLAYER 1 WON");
+        case 1: gtk_button_set_label(statusClick, "Ganó Jugador 1");
                 gameNotOver=0; return 0;
-        case 2: gtk_button_set_label(statusClick, "PLAYER 2 WON");
+        case 2: gtk_button_set_label(statusClick, "Ganó Jugador 2");
                 gameNotOver=0; return 0;
       }
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
     }
     pressed[2][2]=1;
   }
@@ -741,7 +741,7 @@ void initialising(GtkButton *buttonInit,int i,int j)
     if(++initialise==10)
     {
       initialise=0;
-      gtk_button_set_label(statusClick, "PLAYER 1'S MOVE");
+      gtk_button_set_label(statusClick, "Turno del Jugador 1");
       setAllButtonsToBlank();
     }
 }
