@@ -91,7 +91,6 @@ void on_aboutSelection_activate()
 // when gamemode button is pressed
 void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
-  statusClick = (GtkButton *) user_data;
   gameClick = (GtkButton *) user_data;
   if(!statusFlag) return;
   if(flag)
