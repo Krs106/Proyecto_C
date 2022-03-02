@@ -148,11 +148,8 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   statusClick = (GtkButton *) user_data;
   gameClick = (GtkButton *) user_data;
-  if(!flag)
-    {
-      gameType = 0;
-      statusFlag=1;
-    }
+  gameType = 0;
+  statusFlag=1;
 }
 
 /* initialising mode is used to get a reference to all the buttons in order to change
