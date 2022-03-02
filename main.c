@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
 
 // dereferencing builder pointer (for reuse later)
     g_object_unref(builder);
+    gameType=0;
 
 // showing main window widget
     gtk_widget_show(window);
