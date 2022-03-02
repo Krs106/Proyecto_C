@@ -183,9 +183,7 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
     if(++moveCounter%2)
     {
       arr[0][0]=1;
-      GtkWidget *button_image = gtk_image_new_from_file(x.png);
-      g_object_ref(button_image);
-      gtk_button_set_image(GTK_BUTTON(widget),button_image);
+      gtk_button_set_label(buttonTemp, "X");
       pressed[0][0]=1;
       switch(hasAnyoneWon(arr))
       {
