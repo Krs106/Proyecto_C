@@ -92,6 +92,7 @@ void on_aboutSelection_activate()
 void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   gameClick = (GtkButton *) user_data;
+  statusFlag=1;
   if(!statusFlag) return;
   if(flag)
   {
