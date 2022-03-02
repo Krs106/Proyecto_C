@@ -165,8 +165,6 @@ can not press the button when it's its move */
 int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
-  GtkWidget *image = gtk_image_new_from_file ("x.png");
-  GtkWidget *button = gtk_button_new ();
     
   // runs if in initialising mode
   if(initialise!=0)
@@ -185,7 +183,9 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
     if(++moveCounter%2)
     {
       arr[0][0]=1;
-      gtk_button_set_image (GTK_BUTTON (button), image);
+      gtk_button_set_label(buttonTemp, "X");
+      gtk_font_button_set_font_name (GtkFontButton *buttonTemp,
+                               const gchar *Dyuthi Bold Italic);
       pressed[0][0]=1;
       switch(hasAnyoneWon(arr))
       {
