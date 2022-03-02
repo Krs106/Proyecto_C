@@ -151,6 +151,9 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
     {
       gtk_button_set_label(statusClick, "SELECT GAMEMODE FROM SETTINGS");
       statusFlag=1;
+      gameType = 0;
+      gtk_widget_destroy((GtkWidget *) user_data);
+      gtk_button_set_label(gameClick, "PvP");
     }
 }
 
