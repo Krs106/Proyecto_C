@@ -184,8 +184,6 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
     {
       arr[0][0]=1;
       gtk_button_set_label(buttonTemp, "X");
-      gtk_font_button_set_font_name (GtkFontButton *font_button,
-                               const gchar *Dyuthi Bold Italic);
       pressed[0][0]=1;
       switch(hasAnyoneWon(arr))
       {
