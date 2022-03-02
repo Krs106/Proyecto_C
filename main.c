@@ -195,7 +195,6 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
                 gameNotOver=0; return 0;
       }
       gtk_button_set_label(statusClick, "PLAYER 2'S MOVE");
-      if(gameType==1) computerMove();
     }
     // runs when the button is pressed during an even move
     else
