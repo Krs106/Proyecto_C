@@ -150,6 +150,7 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
   if(!flag)
     {
       gameType = 0;
+      statusFlag=1;
     }
 }
 
