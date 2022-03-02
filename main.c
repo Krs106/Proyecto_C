@@ -148,7 +148,7 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
 
 
 // runs when status button is clicked, used to pass a reference of the status button
-void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
+/*void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   statusClick = (GtkButton *) user_data;
   if(!flag)
@@ -157,7 +157,7 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
       statusFlag=1;
     }
 }
-
+*/
 /* initialising mode is used to get a reference to all the buttons in order to change
 their labels in PvC mode. This is a downside of using Glade, as the computer
 can not press the button when it's its move */
