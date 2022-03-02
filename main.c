@@ -122,13 +122,6 @@ void on_pvpButton_clicked(GtkWidget *click_button, gpointer   user_data)
   gtk_button_set_label(gameClick, "PvP");
 }
 
-// runs the choose difficulty pop up when PvC is selected in settings menu
-void on_pvcButton_clicked(GtkWidget *click_button, gpointer   user_data)
-{
-  gameType = 1;
-  gtk_widget_destroy((GtkWidget *) user_data);
-  gtk_button_set_label(gameClick, "PvC");
-}
 
 /* runs when restart is selected in settings menu. Destroys old window,
  reinitialises all global variables and runs main method */
