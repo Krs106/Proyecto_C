@@ -130,6 +130,8 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
   int i,j;
  if(!statusFlag) return;
  gameDifficulty=0; gameType=0; flag=0; moveCounter=0; gameNotOver=1; initialise=0;
+ GtkWidget *mainWindow = (GtkWidget *) user_data;
+ gtk_widget_destroy(mainWindow);
   for(i=0;i<3;i++)
   {
       for(j=0;j<3;j++)
