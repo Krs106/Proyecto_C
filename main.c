@@ -147,9 +147,11 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
 void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   statusClick = (GtkButton *) user_data;
-  gameClick = (GtkButton *) user_data;
-  gameType = 0;
-  statusFlag=1;
+  if(!flag)
+    {
+      gtk_button_set_label(statusClick, "SELECT GAMEMODE FROM SETTINGS");
+      statusFlag=1;
+    }
 }
 
 /* initialising mode is used to get a reference to all the buttons in order to change
