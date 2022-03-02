@@ -112,11 +112,9 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
 // runs when status button is clicked, used to pass a reference of the status button
 void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
-  statusClick = (GtkButton *) user_data;
-  if(!flag)
-    {
-      gtk_button_set_label(statusClick, "SELECT GAMEMODE FROM SETTINGS");
-      statusFlag=1;
+  gameType = 0;
+  gtk_widget_destroy((GtkWidget *) user_data);
+  gtk_button_set_label(gameClick, "PvP");
     }
 }
 
