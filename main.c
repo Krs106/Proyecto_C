@@ -149,8 +149,7 @@ void on_statusButton_clicked(GtkWidget *click_button, gpointer   user_data)
   statusClick = (GtkButton *) user_data;
   if(!flag)
     {
-      gtk_button_set_label(statusClick, "SELECT GAMEMODE FROM SETTINGS");
-      statusFlag=1;
+      gameType = 0;
     }
 }
 
