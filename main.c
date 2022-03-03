@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
 
 // initialising main window widget
-    window = GTK_WIDGET (gtk_builder_get_object(builder, "mainWindow"));
+    window = GTK_WIDGET (gtk_builder_get_object(builder, "Juego"));
     gtk_builder_connect_signals(builder, NULL);
 
 // dereferencing builder pointer (for reuse later)
@@ -61,7 +61,7 @@ void on_aboutSelection_activate()
   gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
 
 // initialising about widget
-  about = GTK_WIDGET(gtk_builder_get_object(builder, "aboutDialog"));
+  about = GTK_WIDGET(gtk_builder_get_object(builder, "instruccion"));
   gtk_builder_connect_signals(builder, NULL);
 
 // dereferencing builder for later use
@@ -92,7 +92,7 @@ void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_da
   builder = gtk_builder_new();
   gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
 // initialising gamemode selection widget
-  gameDialog = GTK_WIDGET(gtk_builder_get_object(builder, "chooseGamemodeDialog"));
+  gameDialog = GTK_WIDGET(gtk_builder_get_object(builder, "vent_lis"));
   gtk_builder_connect_signals(builder, NULL);
   g_object_unref(builder);
   gtk_dialog_run (GTK_DIALOG (gameDialog));
@@ -101,7 +101,7 @@ void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_da
 }
 
 // runs when PvP is selected in settings menu
-void on_pvpButton_clicked(GtkWidget *click_button, gpointer   user_data)
+void on_listo_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   gameType = 0;
   gtk_widget_destroy((GtkWidget *) user_data);
@@ -116,8 +116,8 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
   int i,j;
  if(!statusFlag) return;
  gameType=0; flag=0; moveCounter=0; gameNotOver=1; initialise=0;
- GtkWidget *mainWindow = (GtkWidget *) user_data;
- gtk_widget_destroy(mainWindow);
+ GtkWidget *Juego = (GtkWidget *) user_data;
+ gtk_widget_destroy(Juego);
   for(i=0;i<3;i++)
   {
       for(j=0;j<3;j++)
