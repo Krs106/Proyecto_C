@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 // function prototyping
-int randomNumberLessThan(int n);
 void initialising(GtkButton *buttonInit,int i,int j);
 int hasAnyoneWon(int a[3][3]);
 void setAllButtonsToBlank();
@@ -17,7 +16,7 @@ static int moveCounter=0;
 
 // declaring game parameters
 static int arr[3][3]={{0,0,0},{0,0,0},{0,0,0}};
-static int gameType=0, gameDifficulty=1;
+static int gameType=0;
 
 // main method, start of execution
 int main(int argc, char *argv[])
@@ -82,11 +81,11 @@ void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_da
   if(!statusFlag) return;
   if(flag)
   {
-    gtk_button_set_label(statusClick, "Reiniciar para seleccionar el modo de juego");
+    gtk_button_set_label(statusClick, "Reiniciar para nueva partida");
     return;
   }
   flag=1; //enable flag at button press, not here. reset flag to 0 in restart
-  gtk_button_set_label(statusClick, "Seleccione el modo de juego");
+  gtk_button_set_label(statusClick, "Jugar");
   GtkBuilder  *builder;
   GtkWidget   *gameDialog;
 // initialising GTKbuilder with .glade file
@@ -106,7 +105,7 @@ void on_pvpButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   gameType = 0;
   gtk_widget_destroy((GtkWidget *) user_data);
-  gtk_button_set_label(gameClick, "PvP");
+  gtk_button_set_label(gameClick, "Vamos");
 }
 
 
@@ -116,7 +115,7 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
 {
   int i,j;
  if(!statusFlag) return;
- gameDifficulty=0; gameType=0; flag=0; moveCounter=0; gameNotOver=1; initialise=0;
+ gameType=0; flag=0; moveCounter=0; gameNotOver=1; initialise=0;
  GtkWidget *mainWindow = (GtkWidget *) user_data;
  gtk_widget_destroy(mainWindow);
   for(i=0;i<3;i++)
@@ -141,7 +140,7 @@ can not press the button when it's its move */
 int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
-    
+
   // runs if in initialising mode
   if(initialise!=0)
   {
@@ -721,10 +720,3 @@ void initialising(GtkButton *buttonInit,int i,int j)
       setAllButtonsToBlank();
     }
 }
-
-// random number generator, in the range of 0 < x < n
-int randomNumberLessThan(int n)
-{
-    return (double)rand()*n/RAND_MAX;
-}
-// end of program
