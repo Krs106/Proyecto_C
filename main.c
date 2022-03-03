@@ -6,7 +6,6 @@ int randomNumberLessThan(int n);
 void initialising(GtkButton *buttonInit,int i,int j);
 int hasAnyoneWon(int a[3][3]);
 void setAllButtonsToBlank();
-void computerMove();
 
 // declaring global variables
 static GtkButton *statusClick,*gameClick;
