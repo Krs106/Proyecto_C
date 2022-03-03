@@ -120,7 +120,6 @@
     <property name="default_height">500</property>
     <property name="deletable">False</property>
     <property name="has_resize_grip">True</property>
-    <!--<signal name="destroy" handler="on_mainWindow_destroy" swapped="no"/>-->
     <child type="titlebar">
       <placeholder/>
     </child>
