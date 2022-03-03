@@ -4,3 +4,5 @@ all:
 
 run:
 	./Gato
+clean:
+	rm Gato
