@@ -253,7 +253,7 @@
     <property name="program_name">Gato</property>
     <property name="comments" translatable="yes">Se juega entre dos personas donde trazan dos líneas verticales y dos horizontales cada uno coloca por turno un símbolo ya sea O/X y gana el que pueda alinear tres figuras horizontal, vertical o diagonal, también hay empate.
  La X  comienza.</property>
-    <property name="logo">../hola/fondo.jpeg</property>
+    <property name="logo">fondo.jpeg</property>
     <child type="titlebar">
       <placeholder/>
     </child>
