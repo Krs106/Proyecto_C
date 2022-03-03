@@ -7,7 +7,7 @@
     <property name="type">popup</property>
     <property name="window_position">center</property>
     <property name="destroy_with_parent">True</property>
-    <property name="icon">res/ttt.png</property>
+    <!--<property name="icon">res/ttt.png</property> -->
     <property name="type_hint">dialog</property>
     <property name="program_name">Gato</property>
     <property name="comments" translatable="yes">Se juega entre dos personas donde trazan dos líneas verticales y dos horizontales cada uno coloca por turno un símbolo ya sea O/X y gana el que pueda alinear tres figuras horizontal, vertical o diagonal, también hay empate.
