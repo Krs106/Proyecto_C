@@ -6,13 +6,13 @@ void initialising(GtkButton *buttonInit,int i,int j);
 int hasAnyoneWon(int a[3][3]);
 void setAllButtonsToBlank();
 
-// Declaracion de varaibles globales
+// Declaración de variables globales
 static GtkButton *statusClick,*gameClick;
 static GtkButton *button[3][3]={{NULL,NULL,NULL},{NULL,NULL,NULL},{NULL,NULL,NULL}};
 static int flag=0, gameNotOver=1, initialise=0, statusFlag=0, pressed[3][3]={{0,0,0},{0,0,0},{0,0,0}};
 static int moveCounter=0;
 
-// Declaracion de parametros del juego
+// Declaración de parámetros del juego
 static int arr[3][3]={{0,0,0},{0,0,0},{0,0,0}};
 static int gameType=0;
 
@@ -24,15 +24,15 @@ int main(int argc, char *argv[])
 
     gtk_init(&argc, &argv);
 
-// inicializacion GTKbuilder con aechivo.glade
+// inicialización GTKbuilder con archivo.glade
     builder = gtk_builder_new();
     gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
 
-// inicializacion del widget para ventana principal
+// inicialización del widget para ventana principal
     window = GTK_WIDGET (gtk_builder_get_object(builder, "Juego"));
     gtk_builder_connect_signals(builder, NULL);
 
-// puntero de desreferenciacion
+// puntero de desreferenciación
     g_object_unref(builder);
 
 // Se muestra la ventana principal
@@ -43,20 +43,20 @@ int main(int argc, char *argv[])
 
 // A continuacion se crean las funciones para los botones del menu
 
-//  Funcion para salir del juego
+//  Función para salir del juego
 void on_gameExit_activate()
 {
     gtk_main_quit();
     exit(0);
 }
 
-// Funcion para instrucciones
+// Función para instrucciones
 void on_aboutSelection_activate()
 {
   GtkWidget   *about;
   GtkBuilder  *builder;
 
-// inicializacion del GTKbuilder con archivo.glade
+// inicialización del GTKbuilder con archivo.glade
   builder = gtk_builder_new();
   gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
 
@@ -64,15 +64,15 @@ void on_aboutSelection_activate()
   about = GTK_WIDGET(gtk_builder_get_object(builder, "instruccion"));
   gtk_builder_connect_signals(builder, NULL);
 
-// puntero generador de desreferenciacion
+// puntero generador de desreferenciación
   g_object_unref(builder);
   gtk_dialog_run (GTK_DIALOG (about));
 
-// Cuando se activa la se;al de respuesta
+// Cuando se activa la señal de respuesta
   gtk_widget_destroy (about);
 }
 
-// Funcion del boton jugar
+// Función del botón jugar
 void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   gameClick = (GtkButton *) user_data;
@@ -88,18 +88,18 @@ void on_chooseGamemodeButton_clicked(GtkWidget *click_button, gpointer   user_da
   gtk_button_set_label(statusClick, "Jugar");
   GtkBuilder  *builder;
   GtkWidget   *gameDialog;
-// inicializacion del GTKbuilder con archivo.glade
+// inicialización del GTKbuilder con archivo.glade
   builder = gtk_builder_new();
   gtk_builder_add_from_file (builder, "mainUI.glade", NULL);
   gameDialog = GTK_WIDGET(gtk_builder_get_object(builder, "vent_lis"));
   gtk_builder_connect_signals(builder, NULL);
   g_object_unref(builder);
   gtk_dialog_run (GTK_DIALOG (gameDialog));
-// Para cuando el boton de cierra desde la x de la barra de herramientas
+// Para cuando el botón se cierra desde la x de la barra de herramientas
   gtk_widget_destroy(gameDialog);
 }
 
-// Se ejecuta al seleccionar el boton jugar
+// Se ejecuta al seleccionar el botón jugar
 void on_listo_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   gameType = 0;
@@ -108,7 +108,7 @@ void on_listo_clicked(GtkWidget *click_button, gpointer   user_data)
 }
 
 
-/* Boton de reinicio del juego, reinicia todas la varaibles globales y
+/* Botón de reinicio del juego, reinicia todas la variables globales y
 ejecuta el metodo principal */
 void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
 {
@@ -131,25 +131,25 @@ void on_restartGame_activate(GtkWidget *click_button, gpointer   user_data)
 }
 
 
-/* A continuacion se procede a programar los botones que se encargan
-de mostrar la X o el 0, al moemnto de jugar. */
+/* A continuación se procede a programar los botones que se encargan
+de mostrar la X o el 0, al momento de jugar. */
 
-// Boton en la posicion 11
+// Botón en la posición 11
 int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecutar
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,0,0);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[0][0]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -172,7 +172,7 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[0][0]=2;
@@ -191,22 +191,22 @@ int on_button11_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 12
+// Botón en la posición 12
 int on_button12_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,0,1);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[0][1]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -229,7 +229,7 @@ int on_button12_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[0][1]=2;
@@ -248,22 +248,22 @@ int on_button12_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 13
+// Botón en la posición 13
 int on_button13_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,0,2);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[0][2]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -286,7 +286,7 @@ int on_button13_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[0][2]=2;
@@ -305,22 +305,22 @@ int on_button13_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 21
+// Botón en la posición 21
 int on_button21_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,1,0);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[1][0]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -343,7 +343,7 @@ int on_button21_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[1][0]=2;
@@ -362,22 +362,22 @@ int on_button21_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 22
+// Botón en la posición 22
 int on_button22_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si esta en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,1,1);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[1][1]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -400,7 +400,7 @@ int on_button22_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[1][1]=2;
@@ -419,22 +419,22 @@ int on_button22_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 23
+// Botón en la posición 23
 int on_button23_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,1,2);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[1][2]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -457,7 +457,7 @@ int on_button23_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[1][2]=2;
@@ -476,22 +476,22 @@ int on_button23_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 31
+// Botón en la posición 31
 int on_button31_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
     initialising(buttonTemp,2,0);
     return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[2][0]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -514,7 +514,7 @@ int on_button31_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[2][0]=2;
@@ -533,22 +533,22 @@ int on_button31_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 32
+// Botón en la posición 32
 int on_button32_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
       initialising(buttonTemp,2,1);
       return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[2][1]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -571,7 +571,7 @@ int on_button32_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del Jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[2][1]=2;
@@ -590,22 +590,22 @@ int on_button32_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Boton en la posicion 33
+// Botón en la posición 33
 int on_button33_clicked(GtkWidget *click_button, gpointer   user_data)
 {
   GtkButton *buttonTemp = (GtkButton *) user_data;
 
-  // Si esta en modo inicializacion se ejecuta
+  // Si está en modo inicialización se ejecuta
   if(initialise!=0)
   {
       initialising(buttonTemp,2,2);
       return 0;
   }
 
-  // Se ejecuta si el boton se presiona mientras se esta inicializando el juego
+  // Se ejecuta si el botón se presiona mientras se esta inicializando el juego
   if(pressed[2][2]) return 0;
 
-  // Se ejecuta cuando se presiona el boton en el juego
+  // Se ejecuta cuando se presiona el botón en el juego
   if(flag&&gameNotOver)
   {
     // Se ejecuta durante el movimiento impar
@@ -628,7 +628,7 @@ int on_button33_clicked(GtkWidget *click_button, gpointer   user_data)
       }
       gtk_button_set_label(statusClick, "Turno del jugador 2");
     }
-    // Se ejecuta cuando se presiona el boton durante el movimiento uniforme
+    // Se ejecuta cuando se presiona el botón durante el movimiento uniforme
     else
     {
       arr[2][2]=2;
@@ -647,7 +647,7 @@ int on_button33_clicked(GtkWidget *click_button, gpointer   user_data)
   return 0;
 }
 
-// Funcion para verificar si las filas y columnas estan llenas con 0 o 1
+// Función para verificar si las filas y columnas estan llenas con 0 o 1
 int hasAnyoneWon(int a[3][3])
 {
   int oneWon=0; int twoWon=0; int i,j;
@@ -692,7 +692,7 @@ int hasAnyoneWon(int a[3][3])
 }
 
 /* Reestablece los botones, despues de que se estable completamente el modo de
-inicializacion */
+inicialización */
 void setAllButtonsToBlank()
 {
     int i,j;
@@ -705,7 +705,7 @@ void setAllButtonsToBlank()
     }
 }
 
-// Funcion se ejecuta cuando se presiona por primera vez cada boton
+// Función se ejecuta cuando se presiona por primera vez cada botón
 void initialising(GtkButton *buttonInit,int i,int j)
 {
     if(button[i][j]!=NULL) return;
